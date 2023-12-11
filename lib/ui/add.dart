@@ -58,13 +58,26 @@ class AddScreen extends StatelessWidget {
                 decoration: InputDecoration(labelText: 'Address'),
               ),
               SizedBox(height: 20.0),
-              ElevatedButton(
-                onPressed: () async {
-                  controller.addStudent();
-                  Get.offAll(() => HomeScreen());
-                },
-                child: Text('Save'),
-              ),
+             ElevatedButton(
+  onPressed: () async {
+    // Save the student details
+    controller.addStudent();
+
+    // Show a snackbar with a success message
+    Get.snackbar(
+      'Success',
+      'Student successfully added!',
+      backgroundColor: Colors.green,
+      colorText: Colors.white,
+      snackPosition: SnackPosition.BOTTOM,
+    );
+
+    // Navigate back to the HomeScreen
+    Get.offAll(() => HomeScreen());
+  },
+  child: Text('Save'),
+),
+
             ],
           ),
         ),

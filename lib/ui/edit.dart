@@ -29,6 +29,16 @@ class EditProfileScreen extends StatelessWidget {
               // Add code here to delete the item from the database
               student.delete();
               onDelete();
+
+               Get.snackbar(
+      'Success',
+      'Student successfully deleted!',
+      backgroundColor: Colors.green,
+      colorText: Colors.white,
+      snackPosition: SnackPosition.BOTTOM,
+    );
+
+   
               Get.back(); // Close the screen after deletion
             },
           ),
@@ -61,6 +71,13 @@ class EditProfileScreen extends StatelessWidget {
                 onPressed: () {
                   // Save the updated data using the controller
                   controller.onSave(student, onEdit);
+                  Get.snackbar(
+      'Success',
+      'Student UPDATED!',
+      backgroundColor: Colors.green,
+      colorText: Colors.white,
+      snackPosition: SnackPosition.BOTTOM,
+    );
                   Get.off(HomeScreen());
                 },
                 child: Text('Save Changes'),
